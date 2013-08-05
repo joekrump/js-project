@@ -7,31 +7,41 @@
 </head>
 <body>
 	<script>
-			var Product = function(name, price)
-			{
-				var self = this;
-				self.name = 'default';//typeof name !== 'undefined' ? name : 'default_name';
-				self.price = typeof name !== 'undefined' ? price : 0.00;
-			}
+		var Product = function(name, price)
+		{
+			var self = this;
+			self.name = name||'default product name';
+			self.price = price||0.00;
+		}
 
-			Product.prototype.getName = function(){ 
-				return this.name;
-			}
-			Product.prototype.getPrice = function(){ 
-				return this.price;
-			}
+		Product.prototype.getName = function(){ 
+			return this.name;
+		}
+		Product.prototype.getPrice = function(){ 
+			return this.price;
+		}
 
-			var Drink = function()
-			{
-				var self = this;
-				self.name = 'default';//typeof name !== 'undefined' ? name : 'default drink name';
-			};
-			
-			Drink.prototype = Object.create(Product.prototype);
-			Drink.prototype.constructor = Drink;
+		var Drink = function(name, price, color, flavor){
+			Product.call(this);
+			this.name = name;
+			this.price = price;
+			this.color = color||'black';
+			this.flavor = flavor||'none';
 
-			var product1 = new Drink();
-			console.log(product1.getName());
-		</script>
+		};
+
+		Product.prototype.getColor = function(){ 
+			return this.color;
+		}
+		Product.prototype.getFlavor = function(){ 
+			return this.flavor;
+		}
+		Drink.prototype = Object.create(Product.prototype);
+		Drink.prototype.constructor = Drink;
+
+		var product1 = new Drink('testname', 2.00);
+		console.log(product1.getName());
+		console.log(product1.getPrice());
+	</script>
 </body>
 </html>
