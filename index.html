@@ -14,11 +14,11 @@
 			self.name = name||'default product name';
 			self.price = price||0.00;
 		}
-		//get a products's flavor.
+		//get a products's name.
 		Product.prototype.getName = function(){ 
 			return this.name;
 		}
-		//get a products's flavor.
+		//get a products's price.
 		Product.prototype.getPrice = function(){ 
 			return this.price;
 		}
@@ -32,15 +32,15 @@
 			this.size = size||'11oz';
 		};
 		//get a drink's color.
-		Product.prototype.getColor = function(){ 
+		Drink.prototype.getColor = function(){ 
 			return this.color;
 		}
 		//get a drink's flavor.
-		Product.prototype.getFlavor = function(){ 
+		Drink.prototype.getFlavor = function(){ 
 			return this.flavor;
 		}
 		//Returns a formatted string with values for a drink.
-		Product.prototype.toString = function(){
+		Drink.prototype.toString = function(){
 			return 'Name: ' + this.name   + '<br/>' 
 			+ 'Price: '     + this.price  + '<br/>' 
 			+ 'Color: '     + this.color  + '<br/>' 
@@ -53,7 +53,7 @@
 
 		//Create an instance of Drink
 		var drink1 = new Drink('testname', 2.00);
-		document.write(drink1.toString());
+		console.log(drink1.toString());
 	</script>
 </body>
 </html>
