@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Coffee Shop :)</title>
-	<script src="node-sqlite-purejs.js"></script>
+	<!--<script src="node-sqlite-purejs.js"></script>-->
 </head>
 <body>
 	<script>
@@ -13,18 +13,22 @@
 				self.name = typeof name !== 'undefined' ? name : 'default_name';
 				self.price = typeof name !== 'undefined' ? price : 0.00;
 			}
-			Product.prototype.getName() { return self.name;}
-			Product.prototype.getName() { return self.price;}
 
-			var Drink = function(){
+			Product.prototype.getName = function(){ 
+				return this.name;
+			}
+			Product.prototype.getPrice = function(){ 
+				return this.price;
+			}
+
+			var Drink = function()
+			{
 				var self = this;
 				self.name = typeof name !== 'undefined' ? name : 'default drink name';
-			}
+			};
 			
 			Drink.prototype = Object.create(Product.prototype);
 			Drink.prototype.constructor = Drink;
-			var ItemA = function() { code = 'ItemA'; c = 'a'; };
-
 
 			var product1 = new Drink();
 			console.log(product1.getName());
