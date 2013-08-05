@@ -7,41 +7,53 @@
 </head>
 <body>
 	<script>
+		//Declare Product class. Product is an Abstract superclass.
 		var Product = function(name, price)
 		{
 			var self = this;
 			self.name = name||'default product name';
 			self.price = price||0.00;
 		}
-
+		//get a products's flavor.
 		Product.prototype.getName = function(){ 
 			return this.name;
 		}
+		//get a products's flavor.
 		Product.prototype.getPrice = function(){ 
 			return this.price;
 		}
-
-		var Drink = function(name, price, color, flavor){
+		//Declare Drink class. Drink is a child class of Product
+		var Drink = function(name, price, color, flavor, size){
 			Product.call(this);
 			this.name = name;
 			this.price = price;
 			this.color = color||'black';
 			this.flavor = flavor||'none';
-
+			this.size = size||'11oz';
 		};
-
+		//get a drink's color.
 		Product.prototype.getColor = function(){ 
 			return this.color;
 		}
+		//get a drink's flavor.
 		Product.prototype.getFlavor = function(){ 
 			return this.flavor;
 		}
+		//Returns a formatted string with values for a drink.
+		Product.prototype.toString = function(){
+			return 'Name: ' + this.name   + '<br/>' 
+			+ 'Price: '     + this.price  + '<br/>' 
+			+ 'Color: '     + this.color  + '<br/>' 
+			+ 'Flavor: '    + this.flavor + '<br/>' 
+			+ 'Size: '      + this.size;
+		}
+		//Define prototype info for Drink class.
 		Drink.prototype = Object.create(Product.prototype);
 		Drink.prototype.constructor = Drink;
 
-		var product1 = new Drink('testname', 2.00);
-		console.log(product1.getName());
-		console.log(product1.getPrice());
+		//Create an instance of Drink
+		var drink1 = new Drink('testname', 2.00);
+		document.write(drink1.toString());
 	</script>
 </body>
 </html>
