@@ -31,6 +31,10 @@
 			this.flavor = flavor||'none';
 			this.size = size||'11oz';
 		};
+		
+		//Define prototype info for Drink class.
+		Drink.prototype = Object.create(Product.prototype);
+
 		//get a drink's color.
 		Drink.prototype.getColor = function(){ 
 			return this.color;
@@ -40,20 +44,19 @@
 			return this.flavor;
 		}
 		//Returns a formatted string with values for a drink.
-		Drink.prototype.toString = function(){
+		Drink.prototype.toHTML = function(){
 			return 'Name: ' + this.name   + '<br/>' 
 			+ 'Price: '     + this.price  + '<br/>' 
 			+ 'Color: '     + this.color  + '<br/>' 
 			+ 'Flavor: '    + this.flavor + '<br/>' 
 			+ 'Size: '      + this.size;
 		}
-		//Define prototype info for Drink class.
-		Drink.prototype = Object.create(Product.prototype);
+		
 		Drink.prototype.constructor = Drink;
 
 		//Create an instance of Drink
 		var drink1 = new Drink('testname', 2.00);
-		console.log(drink1.toString());
+		console.log(drink1.toHTML());
 	</script>
 </body>
 </html>
