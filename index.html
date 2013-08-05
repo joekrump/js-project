@@ -10,7 +10,7 @@
 			var Product = function(name, price)
 			{
 				var self = this;
-				self.name = typeof name !== 'undefined' ? name : 'default_name';
+				self.name = 'default';//typeof name !== 'undefined' ? name : 'default_name';
 				self.price = typeof name !== 'undefined' ? price : 0.00;
 			}
 
@@ -24,7 +24,7 @@
 			var Drink = function()
 			{
 				var self = this;
-				self.name = typeof name !== 'undefined' ? name : 'default drink name';
+				self.name = 'default';//typeof name !== 'undefined' ? name : 'default drink name';
 			};
 			
 			Drink.prototype = Object.create(Product.prototype);
